@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
-    //display this info
+    //display this info 
     public CombatMenu CombatMenu;
-    
-    //name of the building thats getting attacked
+
+    //name of the building thats getting attacked 
     public string RacketName;
-    
-    //combat info values
+
+    //combat info values 
     public int PlayerCombatPower;
     public int NPCCombatPower;
     public int WinChance;
 
-    //Display for win chance based on high mid and low 
+    //Display for win chance based on high mid and low  
     public string WinningChance;
 
 
@@ -35,7 +35,7 @@ public class Combat : MonoBehaviour
         {
             WinningChance = "High";
         }
-        else if(WinChance <= 5 && WinChance >= -5)
+        else if (WinChance <= 5 && WinChance >= -5)
         {
             WinningChance = "Mid";
         }
@@ -43,7 +43,6 @@ public class Combat : MonoBehaviour
         {
             WinningChance = "Low";
         }
-                
-    }
 
+    }
 }
