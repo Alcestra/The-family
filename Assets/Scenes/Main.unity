@@ -10807,7 +10807,7 @@ RectTransform:
   m_GameObject: {fileID: 1148753822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1929692116}
   m_RootOrder: 0
@@ -10839,9 +10839,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
-    m_BestFit: 0
+    m_FontSize: 20
+    m_FontStyle: 1
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
@@ -12229,6 +12229,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.2574754, y: 13.335238, z: 5.794087}
   m_Center: {x: -2.419708, y: 6.417619, z: 2.3970435}
+--- !u!114 &1293983471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293983467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58342fb52775db5488436297000543b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CombatMenu: {fileID: 17578485}
+  RacketName: e
+  PlayerCombatPower: 50
+  NPCCombatPower: 100
+  WinChance: 0
+  WinningChance: 
 --- !u!1 &1305647560
 GameObject:
   m_ObjectHideFlags: 0
@@ -18289,7 +18307,7 @@ RectTransform:
   m_GameObject: {fileID: 1811948511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1491722503}
   m_RootOrder: 0
@@ -18321,9 +18339,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
-    m_BestFit: 0
+    m_FontSize: 20
+    m_FontStyle: 1
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
