@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 2140740673232879532}
   - component: {fileID: 2140740673235717978}
   - component: {fileID: 2140740673234740392}
-  - component: {fileID: 4841190658197740444}
   - component: {fileID: 5131743565928045226}
+  - component: {fileID: 718191607990542956}
+  - component: {fileID: 4683599942386341637}
+  - component: {fileID: 260075368112809086}
   m_Layer: 0
   m_Name: MediumRacket
   m_TagString: Untagged
@@ -83,22 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &4841190658197740444
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140740673232584706}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!64 &5131743565928045226
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -113,3 +99,74 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c3cedb81bce25104f957c2f17f04f61d, type: 3}
+--- !u!114 &718191607990542956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140740673232584706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58887ae001ec6f84cbee6a68322a4ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPower: 0
+  EnemyRacketName: 
+  playerOwned: 1
+--- !u!114 &4683599942386341637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140740673232584706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec98958c63971c4393baf1654f1ba46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pubMenu: {fileID: 0}
+  RacketName: 'The Garison '
+  RacketSize: Medium
+  RacketType: Pub
+  pubUpkeep: 75
+  pubEarning: 100
+  pubConsumption: 1
+  pubPoliceActivity: 0
+  pubSecurity: 1
+  pubDeflect: 1
+  pubAmbiance: 1
+  pubWordOfMouth: 1
+  pubSecUpgradeCost: 1000
+  pubDefUpgradeCost: 1000
+  pubAmbiUpgradeCost: 1000
+  pubWOMCost: 1000
+--- !u!114 &260075368112809086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140740673232584706}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb633331a1ba62c498748973903fc64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breweryMenu: {fileID: 0}
+  BreweryName: 
+  BrewerySize: 
+  BreweryType: 
+  BreweryUpkeep: 0
+  BreweryProduction: 0
+  BreweryProductionSpeed: 0
+  BreweryPoliceActivity: 0
+  BrewerySecurity: 0
+  BreweryDeflect: 0
+  BreweryprodLVL: 0
+  BreweryProdSpeed: 0
+  BrewerySecUpgradeCost: 0
+  BreweryDefUpgradeCost: 0
+  BreweryProdUpgradeCost: 0
+  BreweryProdSpeedCost: 0

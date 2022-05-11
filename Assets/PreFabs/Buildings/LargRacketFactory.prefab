@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6791265961209216250}
-  - component: {fileID: 993142330}
   - component: {fileID: 993142331}
+  - component: {fileID: 4078096217882150864}
+  - component: {fileID: 3354068172521518528}
+  - component: {fileID: 7213572042098914195}
   m_Layer: 0
   m_Name: LargRacketFactory
   m_TagString: Untagged
@@ -43,22 +45,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &993142330
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8718051980653173200}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &993142331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +58,77 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 14.659556, y: 17.331059, z: 13.930645}
   m_Center: {x: 2.3297791, y: 3.6655307, z: 5.7180777}
+--- !u!114 &4078096217882150864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718051980653173200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58887ae001ec6f84cbee6a68322a4ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPower: 0
+  EnemyRacketName: 
+  playerOwned: 1
+--- !u!114 &3354068172521518528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718051980653173200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec98958c63971c4393baf1654f1ba46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pubMenu: {fileID: 0}
+  RacketName: The Working Joe
+  RacketSize: Large
+  RacketType: Pub
+  pubUpkeep: 150
+  pubEarning: 175
+  pubConsumption: 1
+  pubPoliceActivity: 0
+  pubSecurity: 1
+  pubDeflect: 1
+  pubAmbiance: 1
+  pubWordOfMouth: 1
+  pubSecUpgradeCost: 1000
+  pubDefUpgradeCost: 1000
+  pubAmbiUpgradeCost: 1000
+  pubWOMCost: 1000
+--- !u!114 &7213572042098914195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718051980653173200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb633331a1ba62c498748973903fc64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breweryMenu: {fileID: 0}
+  BreweryName: 
+  BrewerySize: 
+  BreweryType: 
+  BreweryUpkeep: 0
+  BreweryProduction: 0
+  BreweryProductionSpeed: 0
+  BreweryPoliceActivity: 0
+  BrewerySecurity: 0
+  BreweryDeflect: 0
+  BreweryprodLVL: 0
+  BreweryProdSpeed: 0
+  BrewerySecUpgradeCost: 0
+  BreweryDefUpgradeCost: 0
+  BreweryProdUpgradeCost: 0
+  BreweryProdSpeedCost: 0
 --- !u!1001 &587103956100673498
 PrefabInstance:
   m_ObjectHideFlags: 0

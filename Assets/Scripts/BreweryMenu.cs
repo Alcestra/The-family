@@ -48,6 +48,37 @@ public class BreweryMenu : MonoBehaviour
     {
         BreweryInfoUpdate();
     }
+    void CashCheck()
+    {
+        if (Resources.Instance.PlayerCash >= CurrentBrewery.BrewerySecUpgradeCost)
+        {
+            SecUpgradeButton.interactable = true;
+        }
+        else
+            SecUpgradeButton.interactable = false;
+
+        if (Resources.Instance.PlayerCash >= CurrentBrewery.BreweryDefUpgradeCost)
+        {
+            DefUpgradeButton.interactable = true;
+        }
+        else
+            DefUpgradeButton.interactable = false;
+
+        if (Resources.Instance.PlayerCash >= CurrentBrewery.BreweryProdUpgradeCost)
+        {
+            ProductionUpgradeButton.interactable = true;
+        }
+        else
+            ProductionUpgradeButton.interactable = false;
+
+        if(Resources.Instance.PlayerCash >= CurrentBrewery.BreweryProdSpeedCost)
+        {
+            ProductionSpeedUpgradeButton.interactable = true;
+        }
+        else
+            ProductionSpeedUpgradeButton.interactable= false;
+    }
+
 
     public void Open(Brewery currentBrewery)
     {
@@ -69,6 +100,7 @@ public class BreweryMenu : MonoBehaviour
     {
         if (CurrentBrewery.BrewerySecurity < 5 && Resources.Instance.SpendCheck(CurrentBrewery.BrewerySecUpgradeCost))
         {
+            CashCheck();
             CurrentBrewery.UpgradeSEC();
             LVLCHECKSec();
         }
@@ -78,6 +110,7 @@ public class BreweryMenu : MonoBehaviour
     {
         if (CurrentBrewery.BreweryDeflect < 5 && Resources.Instance.SpendCheck(CurrentBrewery.BreweryDefUpgradeCost))
         {
+            CashCheck();
             CurrentBrewery.UpgradeDef();
             LVLCHeckDEF();
         }
@@ -87,6 +120,7 @@ public class BreweryMenu : MonoBehaviour
     {
         if (CurrentBrewery.BreweryprodLVL < 5 && Resources.Instance.SpendCheck(CurrentBrewery.BreweryProdUpgradeCost))
         {
+            CashCheck();
             CurrentBrewery.Upgradeproduction();
             LVLCheckProduction();
         }
@@ -96,6 +130,7 @@ public class BreweryMenu : MonoBehaviour
     {
         if (CurrentBrewery.BreweryProdSpeed < 5 && Resources.Instance.SpendCheck(CurrentBrewery.BreweryProdSpeedCost))
         {
+            CashCheck();
             CurrentBrewery.UpgradeProdSpeed();
             LVLProductionSpeed();
         }
