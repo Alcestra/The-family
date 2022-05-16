@@ -6,9 +6,12 @@ public class UI_Interaction : MonoBehaviour
     public GameObject Brewery_UI;
     public GameObject Combat_UI;
     public GameObject HQ_UI;
+    public GameObject CombatWin_UI;
+    public GameObject combatLoss_UI;
 
 
-    bool activeUI = false;
+    public bool activeUI = false;
+    private Building activeBuilding;
 
     // Update is called once per frame
     void Update()
@@ -22,9 +25,15 @@ public class UI_Interaction : MonoBehaviour
         activeUI = false;
         Time.timeScale = 1f;
     }
+    public void closeWinMenu()
+    {
+        CombatWin_UI.SetActive(false);
+        activeUI=false;
+        Time.timeScale = 1f;
+    }
 
     void InputCheck()
-    {
+    {        
 
         if (Input.GetMouseButtonDown(0) && activeUI == false)
         {
@@ -34,6 +43,7 @@ public class UI_Interaction : MonoBehaviour
             {
                 if (hit.transform.GetComponent<Building>() != null)
                 {
+                    activeBuilding = hit.transform.GetComponent<Building>();
                     if (hit.transform.GetComponent<Building>().playerOwned)
                     {
                        if (hit.transform.GetComponent<Bar>() != null && hit.transform.GetComponent<Bar>().isActiveAndEnabled)
@@ -64,6 +74,7 @@ public class UI_Interaction : MonoBehaviour
                             activeUI = true;                            
                         }
 
+
                     }
                     else
                     {
@@ -74,6 +85,7 @@ public class UI_Interaction : MonoBehaviour
                         string enemyRacketName = hit.transform.GetComponent<Building>().EnemyRacketName;
                         Combat_UI.GetComponent<Combat>().GetNPCCombatPower(enemyCP);
                         Combat_UI.GetComponent<Combat>().GetNPCRacketName(enemyRacketName);
+                        Combat_UI.GetComponent<Combat>().activeBuilding = activeBuilding;
                     }
 
                 }
@@ -113,6 +125,18 @@ public class UI_Interaction : MonoBehaviour
             HQ_UI.GetComponent<PlayerHQmenu>().HireMenu.SetActive(false);
             activeUI = false;
             Time.timeScale=1;
+        }
+        if(Input.GetKeyDown(KeyCode.Escape) && CombatWin_UI.activeInHierarchy == true)
+        {
+            CombatWin_UI.SetActive(false);
+            activeUI = false;
+            Time.timeScale = 1;
+        }
+        if(Input.GetKeyDown(KeyCode.Escape)&& combatLoss_UI.activeInHierarchy == true)
+        {
+            combatLoss_UI.SetActive(false);
+            activeUI = false;
+            Time.timeScale = 1;
         }
 
     }

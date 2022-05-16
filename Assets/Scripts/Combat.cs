@@ -23,6 +23,7 @@ public class Combat : MonoBehaviour
     public string WinningChance;
 
     public bool PlayerWon;
+    public Building activeBuilding;
 
     public void Update()
     {
@@ -115,11 +116,13 @@ public class Combat : MonoBehaviour
 
         if(PlayerWon == true)
         {
+            CombatWinScreen.GetComponent<WinMenu>().activeBuilding = activeBuilding;
             CombatWinScreen.SetActive(true);
+            
         }
         else if (PlayerWon == false)
         {
-            CombatLossScreen.SetActive(false);
+            CombatLossScreen.SetActive(true);
             PlayerCombatPower -= Random.Range(1, 11);
         }
 
