@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Brewery : MonoBehaviour
@@ -32,9 +33,17 @@ public class Brewery : MonoBehaviour
     public float BreweryProdUpgradeCost;
     public float BreweryProdSpeedCost;
 
+    public List<SpriteRenderer> SpriteRenderers;
+    public Sprite BrewerySprite;
+
     private void Start()
     {
-       Resources.Instance.IncreaseTotalUpkeep(BreweryUpkeep);
+        foreach (SpriteRenderer renderer in SpriteRenderers)
+        {
+            renderer.sprite = BrewerySprite;
+        }
+
+        Resources.Instance.IncreaseTotalUpkeep(BreweryUpkeep);
        Resources.Instance.IncreaseTotalProduction(BreweryProduction);
        Resources.Instance.IncreaseTotalPoliceActivity(BreweryPoliceActivity);
     }

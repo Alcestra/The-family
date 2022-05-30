@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -34,8 +35,16 @@ public class Bar : MonoBehaviour
     public float pubAmbiUpgradeCost;
     public float pubWOMCost;
 
+    public List<SpriteRenderer> SpriteRenderers;
+    public Sprite BarSprite;
+
     private void Start()
     {
+        foreach(SpriteRenderer renderer in SpriteRenderers)
+        {
+            renderer.sprite = BarSprite;
+        }
+
         Resources.Instance.IncreaseTotalUpkeep(pubUpkeep);
         Resources.Instance.IncreaseTotalEarning(pubEarning);
         Resources.Instance.IncreaseTotalConsumption(pubConsumption);

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-
 public class Combat : MonoBehaviour
 {
     public PlayerHQ PlayerHQ;
@@ -30,7 +28,6 @@ public class Combat : MonoBehaviour
         WinChanceCalculation();
         WinChanceDisplay();
         UpdatePlayerCP();
-        GetNPCCombatPower(NPCCombatPower);
     }
 
     void UpdatePlayerCP()
@@ -76,7 +73,6 @@ public class Combat : MonoBehaviour
         {
             WinningChance = "None";
         }
-
     }   
 
     public void SimulateFight()
@@ -88,7 +84,7 @@ public class Combat : MonoBehaviour
             playerValue = Random.Range(1, 9);
         }
         //high 
-        else if (WinChance > 5)
+        else if (WinChance > 5 && WinChance <=30)
         {
             playerValue = Random.Range(1, 11);
         }
@@ -98,7 +94,7 @@ public class Combat : MonoBehaviour
             playerValue = Random.Range(8, 11);
         }
         //low
-        else if (WinChance < -5 && WinChance > -30)
+        else if (WinChance < -5 && WinChance >=-15)
         {
             playerValue = Random.Range(9, 11);
         }
@@ -123,7 +119,7 @@ public class Combat : MonoBehaviour
         else if (PlayerWon == false)
         {
             CombatLossScreen.SetActive(true);
-            PlayerCombatPower -= Random.Range(1, 11);
+            PlayerHQ.CombatPower -= Random.Range(1, 11);
         }
 
         Debug.Log(playerValue);

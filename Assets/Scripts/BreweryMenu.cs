@@ -44,6 +44,8 @@ public class BreweryMenu : MonoBehaviour
     public Button ProductionUpgradeButton;
     public Button ProductionSpeedUpgradeButton;
 
+
+
     private void Update()
     {
         BreweryInfoUpdate();

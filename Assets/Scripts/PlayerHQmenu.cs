@@ -14,7 +14,6 @@ public class PlayerHQmenu : MonoBehaviour
     #region Names
     [Header("Naming and sizes")]
     public Text HQName;
-    public Text HQSize;
     public Text HQType;
     #endregion
 
@@ -133,7 +132,6 @@ public class PlayerHQmenu : MonoBehaviour
     {
         //building size/name and type
         HQName.text = HQ.HQ;
-        HQSize.text = HQ.HQSize;
         HQType.text = HQ.HQType;
 
         //building info regarding upgrades/costs/earnings

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class WinMenu : MonoBehaviour
 {
+
     [Header("Building names")]
     public Text BreweryName;
     public Text PubName;
@@ -16,8 +17,10 @@ public class WinMenu : MonoBehaviour
     public Button buyBreweryButton;
     public Button cantAffordButton;
 
+    public GameObject winScreen;
     public UI_Interaction UI_Interaction;
     public Building activeBuilding;
+
 
 
     public void OnEnable()
@@ -29,7 +32,10 @@ public class WinMenu : MonoBehaviour
         }
     }
 
-   
+  public void OpenWinScreen()
+    {
+        winScreen.SetActive(true);
+    }
 
     public void BuyPub()
     {
@@ -56,10 +62,7 @@ public class WinMenu : MonoBehaviour
 
     public void CantAfford()
     {
-        UI_Interaction.Combat_UI.SetActive(false);
-        UI_Interaction.activeUI = false;
-        Time.timeScale = 1;
-        gameObject.SetActive(false);
+        UI_Interaction.closeWinMenu();
     }
 
 

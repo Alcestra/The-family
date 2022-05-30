@@ -8,7 +8,7 @@ public class Resources : MonoBehaviour
     //displayed in the resourceMenu
     public int PlayerCash;
     public int currentLiqour;
-    public int maxLiqour;
+    public int LiqourStorage;
 
     //calculating cash flow
     public int TotalUpkeep;
@@ -19,10 +19,13 @@ public class Resources : MonoBehaviour
     public int TotalProduction;
     public int TotalConsumption;
     public int NetProduction;
+    public int TotalLiquor;
 
     //calculating the chances of police raids, this will start if your total score is above 50 then calculate each buildings chance
     public int TotalPoliceActivity;
 
+
+    public GameObject LoseScreen;
 
 
     private void Awake()
@@ -46,14 +49,36 @@ public class Resources : MonoBehaviour
     {
         NetIncome = TotalEarning - TotalUpkeep;
         NetProduction = TotalProduction - TotalConsumption;
+        
     }
 
 
     IEnumerator WeeklyTimerCorutine()
     {
         yield return new WaitForSeconds(5);
-        PlayerCash += TotalEarning - TotalUpkeep;
-        currentLiqour += TotalProduction - TotalConsumption;
+        if(PlayerCash < 0)
+        {
+            LoseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            PlayerCash += NetIncome;
+        }
+        
+        if(currentLiqour + NetProduction > LiqourStorage)
+        {
+            currentLiqour = LiqourStorage;
+        }
+        else if(currentLiqour + NetProduction < 0)
+        {
+            LoseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            currentLiqour += NetProduction;
+        }
         StartCoroutine(WeeklyTimerCorutine());
     }   
 
@@ -71,6 +96,7 @@ public class Resources : MonoBehaviour
         PlayerCash -= costValue;        
     }
 
+   
    
 
     public void IncreaseTotalUpkeep(int upkeepAdd)

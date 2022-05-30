@@ -46,8 +46,7 @@ public class BarMenu : MonoBehaviour
 
     private void Update()
     {
-        RacketInfoUpdate();
-        
+        RacketInfoUpdate();        
     }
 
     public void Open(Bar currentPub)

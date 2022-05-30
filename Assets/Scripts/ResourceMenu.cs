@@ -26,7 +26,7 @@ public class ResourceMenu : MonoBehaviour
         //updating display values
         playerCash.text = Resources.Instance.PlayerCash.ToString() + "$";
         currentLiqour.text = Resources.Instance.currentLiqour.ToString();
-        maxLiqour.text = Resources.Instance.maxLiqour.ToString();
+       maxLiqour.text = Resources.Instance.LiqourStorage.ToString();
         Upkeep.text = "(" +Resources.Instance.NetIncome.ToString()  + "$" + ")";
         LiqourProd.text = "(" +Resources.Instance.NetProduction.ToString() + ")";
     }
