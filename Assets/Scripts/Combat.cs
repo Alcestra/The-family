@@ -120,10 +120,7 @@ public class Combat : MonoBehaviour
         {
             CombatLossScreen.SetActive(true);
             PlayerHQ.CombatPower -= Random.Range(1, 11);
-        }
-
-        Debug.Log(playerValue);
-        Debug.Log(PlayerWon);
+        }        
     }    
     
 }

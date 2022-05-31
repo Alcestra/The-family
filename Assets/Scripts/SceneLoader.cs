@@ -5,7 +5,11 @@ public class SceneLoader : MonoBehaviour
 {
     public void PlayGame()
     {
+<<<<<<< Updated upstream
         Time.timeScale = 1f;    
+=======
+        Time.timeScale = 1f;
+>>>>>>> Stashed changes
         SceneManager.LoadScene("City");
     }
 
