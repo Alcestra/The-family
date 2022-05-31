@@ -9,7 +9,7 @@ public class UI_Interaction : MonoBehaviour
     public GameObject CombatWin_UI;
     public GameObject combatLoss_UI;
     public GameObject Guid;
-
+    public GameObject PauseMenu;
 
     public bool activeUI = false;
     private Building activeBuilding;
@@ -40,6 +40,19 @@ public class UI_Interaction : MonoBehaviour
         Combat_UI.SetActive(false);
         activeUI=false;
         Time.timeScale = 1f;
+    }
+
+    public void CloseResume()
+    {
+        PauseMenu.SetActive(false);
+        activeUI = false;
+        Time.timeScale=1f;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("eh");
     }
 
     void InputCheck()
@@ -169,6 +182,21 @@ public class UI_Interaction : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Tab))
         {
             Guid.SetActive(false);
+        }
+
+
+        //open pause menu
+        if(Input.GetKeyDown(KeyCode.Escape) && activeUI == false)
+        {
+            Time.timeScale = 0;
+            activeUI = true;
+            PauseMenu.SetActive(true);
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && activeUI == true)
+        {
+            Time.timeScale = 1;
+            activeUI=false;
+            PauseMenu.SetActive(false);
         }
 
     }   

@@ -20,7 +20,7 @@ public class WinMenu : MonoBehaviour
     public GameObject winScreen;
     public UI_Interaction UI_Interaction;
     public Building activeBuilding;
-
+    public WinCondition wincond;
 
 
     public void OnEnable()
@@ -29,6 +29,7 @@ public class WinMenu : MonoBehaviour
         if(activeBuilding.playerOwned == false)
         {
             activeBuilding.playerOwned = true;
+            wincond.AcquiredBuilding();
         }
     }
 

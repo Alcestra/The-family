@@ -32,7 +32,8 @@ public class Resources : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(gameObject);
+            Destroy(Instance.gameObject);
+            Instance = this;
         }
         else
         {
@@ -58,8 +59,8 @@ public class Resources : MonoBehaviour
         yield return new WaitForSeconds(5);
         if(PlayerCash < 0)
         {
-            LoseScreen.SetActive(true);
             Time.timeScale = 0f;
+            LoseScreen.SetActive(true);
         }
         else
         {
@@ -72,8 +73,8 @@ public class Resources : MonoBehaviour
         }
         else if(currentLiqour + NetProduction < 0)
         {
-            LoseScreen.SetActive(true);
             Time.timeScale = 0f;
+            LoseScreen.SetActive(true);
         }
         else
         {
