@@ -22,8 +22,7 @@ public class Resources : MonoBehaviour
     public int TotalLiquor;
 
     //calculating the chances of police raids, this will start if your total score is above 50 then calculate each buildings chance
-    public int TotalPoliceActivity;
-
+    public int TotalPoliceActivity;   
 
     public GameObject LoseScreen;
 
@@ -45,6 +44,7 @@ public class Resources : MonoBehaviour
     private void Start()
     {
         StartCoroutine(WeeklyTimerCorutine());
+        
     }
     public void Update()
     {
@@ -53,7 +53,7 @@ public class Resources : MonoBehaviour
         
     }
 
-
+    // cash and liquor update for each week
     IEnumerator WeeklyTimerCorutine()
     {
         yield return new WaitForSeconds(5);
@@ -81,7 +81,7 @@ public class Resources : MonoBehaviour
             currentLiqour += NetProduction;
         }
         StartCoroutine(WeeklyTimerCorutine());
-    }   
+    }    
 
     public bool SpendCheck(float costValue)
     {
