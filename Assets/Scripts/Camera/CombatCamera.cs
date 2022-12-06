@@ -21,14 +21,22 @@ public class CombatCamera : MonoBehaviour
 
 
     private void Start()
-    {
-        CinemachineTransposer cinemachineTransposer = CinemachineVirtualcam.GetCinemachineComponent<CinemachineTransposer>();
+    {        
+        cinemachineTransposer = CinemachineVirtualcam.GetCinemachineComponent<CinemachineTransposer>();
         targetFollowOffset = cinemachineTransposer.m_FollowOffset;
     }
 
     private void Update()
     {
 
+        HandleMovement();
+        HandleRotation();
+        HandleZoome();
+
+    }
+
+    private void HandleMovement()
+    {
         //WASD movement for camera
         Vector3 inputMoveDir = new Vector3(0, 0, 0);
         if (Input.GetKey(KeyCode.W))
@@ -50,6 +58,10 @@ public class CombatCamera : MonoBehaviour
         Vector3 moveVector = transform.forward * inputMoveDir.z + transform.right * inputMoveDir.x;
         transform.position += moveVector * moveSpeed * Time.deltaTime;
 
+    }
+
+    private void HandleRotation()
+    {
         //Camera rotation controlles
         Vector3 rotationVector = new Vector3(0,0,0);
 
@@ -62,11 +74,12 @@ public class CombatCamera : MonoBehaviour
             rotationVector.y = -1f;
         }
         transform.eulerAngles += rotationVector * rotationSpeed * Time.deltaTime;
-
-
+    }
+    private void HandleZoome()
+    {
         //Zoooming in the camera
 
-        if(Input.mouseScrollDelta.y > 0)
+        if (Input.mouseScrollDelta.y > 0)
         {
             targetFollowOffset.y -= zoomAmout;
         }
@@ -77,7 +90,7 @@ public class CombatCamera : MonoBehaviour
         }
         targetFollowOffset.y = Mathf.Clamp(targetFollowOffset.y, minFollowYoffset, maxFollowYoffset);
 
-        cinemachineTransposer.m_FollowOffset = Vector3.Lerp(cinemachineTransposer.m_FollowOffset, targetFollowOffset ,Time.deltaTime * zoomSpeed);
+        cinemachineTransposer.m_FollowOffset = Vector3.Lerp(cinemachineTransposer.m_FollowOffset, targetFollowOffset, Time.deltaTime * zoomSpeed);
 
     }
 }
