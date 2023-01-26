@@ -1,42 +1,45 @@
 using System;
+using UnityEngine;
 
 public struct GridPosition : IEquatable<GridPosition>
 {
-    public int X;
+    public int x;
     public int z;
 
     public GridPosition(int x, int z)
     {
-        this.X = x;
+        this.x = x;
         this.z = z;
     }
 
-    public override bool Equals(object obj)
-    {
-        return obj is GridPosition position &&
-               X == position.X &&
-               z == position.z;
-    }
+   
+    
+    //public override bool Equals(object obj)
+    //{
+    //    return obj is GridPosition position &&
+    //           x == position.x &&
+    //           z == position.z;
+    //}
+    //
+    //public bool Equals(GridPosition other)
+    //{
+    //    return this == other;
+    //}
 
-    public bool Equals(GridPosition other)
-    {
-        throw new NotImplementedException();
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(X, z);
-    }
+    //public override int GetHashCode()
+    //{
+    //    return HashCode.Combine(x, z);
+    //}
 
     public override string ToString()
     {
-        return "x:" + X + "; z:" + z;
+        return "x:" + x + "; z:" + z;
     }
 
 
     public static bool operator == (GridPosition a, GridPosition b)
     {
-        return a.X == b.X && a.z == b.z;
+        return a.x == b.x && a.z == b.z;
     }        
      
     public static bool operator != (GridPosition a, GridPosition b)
@@ -46,10 +49,26 @@ public struct GridPosition : IEquatable<GridPosition>
 
     public static GridPosition operator + (GridPosition a, GridPosition b)
     {
-        return new GridPosition(a.X + b.X, a.z + b.z); 
+        return new GridPosition(a.x + b.x, a.z + b.z); 
     }
     public static GridPosition operator -(GridPosition a, GridPosition b)
     {
-        return new GridPosition(a.X - b.X, a.z - b.z);
+        return new GridPosition(a.x - b.x, a.z - b.z);
+    }
+
+
+    public bool Equals(GridPosition other)
+    {
+        return x == other.x && z == other.z;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is GridPosition other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(x, z);
     }
 }

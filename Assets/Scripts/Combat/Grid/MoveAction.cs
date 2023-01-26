@@ -1,60 +1,70 @@
+using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MoveAction : MonoBehaviour
+public class MoveAction : BaseAction
 {
     [SerializeField] private Animator unitAnimator;
     [SerializeField] private int maxMoveDistance;
 
     private Vector3 targetPosition;
-    private Unit Unit;
+   
 
     private float moveSpeed = 4f;
     private float stoppingDistance = .1f;
     private float rotatingSpeed = 10;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Unit = GetComponent<Unit>();
+        base.Awake();
         targetPosition = transform.position;
     }
     private void Update()
     {
         //Setting up the unit movement on mouse click as well as the animations
+        if (!isActive) 
+        {
+            return;
+        }
+        Vector3 MoveDirection = (targetPosition - transform.position).normalized;
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {
 
-            Vector3 MoveDirection = (targetPosition - transform.position).normalized;
+            
             transform.position += MoveDirection * moveSpeed * Time.deltaTime;
 
-            transform.forward = Vector3.Lerp(transform.forward, MoveDirection, Time.deltaTime * rotatingSpeed);
+           
             unitAnimator.SetBool("isWalking", true);
 
         }
         else
         {
             unitAnimator.SetBool("isWalking", false);
-
+            isActive = false;
+            onActionComplete();
         }
+        transform.forward = Vector3.Lerp(transform.forward, MoveDirection, Time.deltaTime * rotatingSpeed);
     }
 
-    public void Move(GridPosition gridPosition)
+    public void Move(GridPosition gridPosition,Action onActionComplete)
     {
+        this.onActionComplete = onActionComplete;
         this.targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+        isActive= true;
     }
 
 
     public bool IsValidActionGridPostition(GridPosition gridPosition)
     {
-        List<GridPosition> ValidGridPositionList =   GetValidActionGridPositionList();
-        return ValidGridPositionList.Contains(gridPosition);
+        List<GridPosition> validGridPositionList =   GetValidActionGridPositionList();
+        return validGridPositionList.Contains(gridPosition);
     }
 
     public List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> ValidGridPositionList = new List<GridPosition>();
-        GridPosition unitGridPosition = Unit.GetGridPosition();
+        GridPosition unitGridPosition = unit.GetGridPosition();
 
 
         //checks for valied areas for the unit to move within the max range
